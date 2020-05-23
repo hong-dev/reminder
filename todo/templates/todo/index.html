@@ -19,43 +19,55 @@
 	<table>
 		{% for todo in todo_list %}
 		<tr>
-			<form action='/status/{{ todo.id }}' method='post'>
-				{% csrf_token %}
-				<td class='container'>
-					<input type='checkbox' {% if not todo.is_active %}checked{% endif %}>
-					<span class='checkmark'></span>
-				</td>
-			</form>
+			<td class='container'>
+				<form action='/status/{{ todo.id }}' method='post'>
+					{% csrf_token %}
+					<label>
+						<button></button>
+						<input type='checkbox' {% if not todo.is_active %}checked{% endif %}>
+						<span class='checkmark'></span>
+					</label>
+				</form>
+			</td>
 
+			{% if todo.is_active %}
 			<td class='title'>{{ todo.title }}</td>
+			{% endif %}
+
+			{% if not todo.is_active %}
+			<td class='title done'>{{ todo.title }}</td>
+			{% endif %}
 
 			<form action='/todo/{{ todo.id }}' method='post'>
 				{% csrf_token %}
 				<td><button class='del_button'>ㅡ</button></td>
 			</form>
 		</tr>
+
 		<tr>
 			<td>{{ todo.image }}</td>
 		</tr>
 		{% endfor %}
 
 	</table>
-	<table>
-		<tr class="creation">
-			<td class='container'>
-				<input type='checkbox'>
-				<span class='checkmark'></span>
-			</td>
 
-			<form action='/new' method='post'>
-				{% csrf_token %}
-			<td class='add_title'><input class='input_title' name='title' placeholder='Enter your title :)'></td>
-			<td class='td_save'><button class='save'>save</button></td>
-		</tr>
-		<tr>
-			<td><button>attach image</button></td>
-			</form>
-		</tr>
-	</table>
+	<article>
+		<details>
+			<summary>New Reminder</summary>
+
+		<table>
+			<tr class="creation">
+				<form action='/new' method='post'>
+					{% csrf_token %}
+					<td class='add_title'><input class='input_title' name='title' placeholder='Enter your title :)'></td>
+					<td class='td_save'><button class='save'>save</button></td>
+			</tr>
+			<tr>
+				<td><button>attach image</button></td>
+				</form>
+			</tr>
+		</table>
+		</details>
+	</article>
 </body>
 </html>

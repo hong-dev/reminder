@@ -25,7 +25,6 @@ class TodoListView(View):
 
 class TodoCreateView(View):
     def post(self, request):
-        print(request.POST)
         title = request.POST.get('title')
         image = request.POST.get('image')
 
