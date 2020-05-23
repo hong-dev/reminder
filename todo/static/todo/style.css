@@ -35,6 +35,10 @@ table {
 	width: 90%;
 }
 
+.done {
+	text-decoration: line-through;
+}
+
 td {
 	padding: 20px;
 	font-size: 30px;
@@ -46,14 +50,12 @@ td {
   position: relative;
   margin-left: 35px;
   margin-top: 20px;
-  cursor: pointer;
   font-size: 22px;
 }
 
 .container input {
   position: absolute;
   opacity: 0;
-  cursor: pointer;
   height: 0;
   width: 0;
 }
@@ -89,6 +91,7 @@ td {
   left: 0;
   height: 50px;
   width: 50px;
+  cursor: pointer;
   background-color: #eee;
 }
 
@@ -106,13 +109,13 @@ td {
 }
 
 .td_save {
-	text-align: right;
+	text-align: left;
 	padding-right: 20px;
 }
 
 .save {
-	width: 70px;
-	height: 45px;
+	width: 80px;
+	height: 55px;
 	font-size: 20px;
 	font-weight: bold;
 	background-color: #2699fb;
@@ -124,14 +127,42 @@ td {
 
 .add_title {
 	border-style: none;
-	width: 90%;
+	width: 80%;
+	padding-left: 5%;
 }
 
 .input_title {
 	font-size: 30px;
+	padding: 10px;
 	border-style: none none solid none;
 	border-width: bold;
 	border-color: #eee;
 	width: 100%;
 	color: #838688;
+}
+
+summary {
+	font-size: 30px;
+	color: #2699fb;
+	font-weight: bold;
+	padding: 0 30px;
+	cursor: pointer;
+}
+
+article {
+	background-color: #e1ecf4;
+	margin-top: 50px;
+	padding: 20px 5px;
+}
+
+details summary::-webkit-details-marker {
+  left: 15px;
+  width: 15px;
+  height: 30px;
+  border: solid #2699fb;
+  border-width: 0 5px 5px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  color: #e1ecf4;
 }
