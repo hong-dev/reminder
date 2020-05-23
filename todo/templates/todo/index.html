@@ -15,9 +15,33 @@
 	</nav>
 	<table>
 		<tr>
-			<td>{{todo_list.is_active}}</td>
-			<td>{{todo_list.title}}</td>
+			{% for todo in todo_list %}
+
+			<form action='/status/{{ todo.id }}' method='post'>
+				{% csrf_token %}
+				<td><button>달성여부</button></td>
+			</form>
+
+			<td>{{ todo.title }}</td>
+
+			<form action='/todo/{{ todo.id }}' method='post'>
+				{% csrf_token %}
+				<td><button>삭제</button></td>
+			</form>
+
+			<td>{{ todo.image }}</td>
+			{% endfor %}
+		</tr>
+		<tr class="creation">
+			<td><button>달성여부</button></td>
+			<form action='/new' method='post'>
+				{% csrf_token %}
+				<td><input name='title'></td>
+				<td><button>저장</button></td>
+			</form>
 			<td><button>삭제</button></td>
-			<td>{{todo_list.image}}</td>
+			<td><button>attach image</button></td>
+		</tr>
+
 </body>
 </html>
