@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'todo/style.css' %}">
 <head>
     <meta charset="UTF-8">
     <title>My Reminder</title>
@@ -14,34 +17,45 @@
 		</ul>
 	</nav>
 	<table>
+		{% for todo in todo_list %}
 		<tr>
-			{% for todo in todo_list %}
-
 			<form action='/status/{{ todo.id }}' method='post'>
 				{% csrf_token %}
-				<td><button>달성여부</button></td>
+				<td class='container'>
+					<input type='checkbox' {% if not todo.is_active %}checked{% endif %}>
+					<span class='checkmark'></span>
+				</td>
 			</form>
 
-			<td>{{ todo.title }}</td>
+			<td class='title'>{{ todo.title }}</td>
 
 			<form action='/todo/{{ todo.id }}' method='post'>
 				{% csrf_token %}
-				<td><button>삭제</button></td>
+				<td><button class='del_button'>ㅡ</button></td>
 			</form>
-
-			<td>{{ todo.image }}</td>
-			{% endfor %}
 		</tr>
+		<tr>
+			<td>{{ todo.image }}</td>
+		</tr>
+		{% endfor %}
+
+	</table>
+	<table>
 		<tr class="creation">
-			<td><button>달성여부</button></td>
+			<td class='container'>
+				<input type='checkbox'>
+				<span class='checkmark'></span>
+			</td>
+
 			<form action='/new' method='post'>
 				{% csrf_token %}
-				<td><input name='title'></td>
-				<td><button>저장</button></td>
-			</form>
-			<td><button>삭제</button></td>
-			<td><button>attach image</button></td>
+			<td class='add_title'><input class='input_title' name='title' placeholder='Enter your title :)'></td>
+			<td class='td_save'><button class='save'>save</button></td>
 		</tr>
-
+		<tr>
+			<td><button>attach image</button></td>
+			</form>
+		</tr>
+	</table>
 </body>
 </html>
