@@ -25,11 +25,12 @@ class TodoListView(View):
 
 class TodoCreateView(View):
     def post(self, request):
-        title = request.POST.get('title', 'Untitled')
+        print(request.POST)
+        title = request.POST.get('title')
         image = request.POST.get('image')
 
         Todo.objects.create(
-            title     = title,
+            title     = title if title else 'Untitled',
             image     = image,
             is_active = True
         )
