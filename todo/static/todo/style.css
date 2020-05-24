@@ -46,53 +46,53 @@ td {
 }
 
 .container {
-  display: block;
-  position: relative;
-  margin-left: 35px;
-  margin-top: 20px;
-  font-size: 22px;
+	display: block;
+	position: relative;
+	margin-left: 35px;
+	margin-top: 20px;
+	font-size: 22px;
 }
 
 .container input {
-  position: absolute;
-  opacity: 0;
-  height: 0;
-  width: 0;
+	position: absolute;
+	opacity: 0;
+	height: 0;
+	width: 0;
 }
 
 .container input:checked ~ .checkmark {
-  background-color: #2699fb;
+	background-color: #2699fb;
 }
 
 .checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
+	content: "";
+	position: absolute;
+	display: none;
 }
 
 .container input:checked ~ .checkmark:after {
-  display: block;
+	display: block;
 }
 
 .container .checkmark:after {
-  left: 15px;
-  width: 15px;
-  height: 30px;
-  border: solid white;
-  border-width: 0 5px 5px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
+	left: 15px;
+	width: 15px;
+	height: 30px;
+	border: solid white;
+	border-width: 0 5px 5px 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
 }
 
 .checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 50px;
-  width: 50px;
-  cursor: pointer;
-  background-color: #eee;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 50px;
+	width: 50px;
+	cursor: pointer;
+	background-color: #eee;
 }
 
 .del_button {
@@ -110,7 +110,6 @@ td {
 
 .td_save {
 	text-align: left;
-	padding-right: 20px;
 }
 
 .save {
@@ -123,6 +122,7 @@ td {
 	color: white;
 	cursor: pointer;
 	border-radius: 15%;
+	margin: 20px 20px 20px 0;
 }
 
 .add_title {
@@ -156,13 +156,49 @@ article {
 }
 
 details summary::-webkit-details-marker {
-  left: 15px;
-  width: 15px;
-  height: 30px;
-  border: solid #2699fb;
-  border-width: 0 5px 5px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-  color: #e1ecf4;
+	left: 15px;
+	width: 15px;
+	height: 30px;
+	border: solid #2699fb;
+	border-width: 0 5px 5px 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+	color: #e1ecf4;
+}
+
+.td_image {
+	padding: 0 0 0 20px;
+}
+
+.image {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.image_label {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: #757575;
+    display: inline-block;
+	cursor: pointer;
+	width: 180px;
+	height: 45px;
+	text-align: center;
+	vertical-align: middle;
+	padding: 10px 10px 0 10px;
+}
+
+.new_table {
+	margin: 0;
+}
+
+img {
+	width: 400px;
+	margin-left: 10%;
 }
