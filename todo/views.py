@@ -1,7 +1,9 @@
-from .models import Todo
+from .models           import Todo
 
-from django.shortcuts import render, redirect
-from django.views     import View
+from django.shortcuts          import render, redirect
+from django.views              import View
+from django.core.files.storage import default_storage
+from django.core.files.base    import ContentFile
 
 class TodoListView(View):
     def get(self, request):
@@ -26,7 +28,12 @@ class TodoListView(View):
 class TodoCreateView(View):
     def post(self, request):
         title = request.POST.get('title')
-        image = request.POST.get('image')
+        file = request.FILES.get('image')
+
+        if file:
+            image = default_storage.save(file.name, ContentFile(file.read()))
+        else:
+            image = None
 
         Todo.objects.create(
             title     = title if title else 'Untitled',

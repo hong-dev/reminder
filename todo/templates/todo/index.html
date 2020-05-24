@@ -16,8 +16,8 @@
 			<li>Done</li>
 		</ul>
 	</nav>
+	{% for todo in todo_list %}
 	<table>
-		{% for todo in todo_list %}
 		<tr>
 			<td class='container'>
 				<form action='/status/{{ todo.id }}' method='post'>
@@ -43,30 +43,37 @@
 				<td><button class='del_button'>ㅡ</button></td>
 			</form>
 		</tr>
-
-		<tr>
-			<td>{{ todo.image }}</td>
-		</tr>
-		{% endfor %}
-
 	</table>
+
+	<table>
+		<tr>
+			{% if todo.image %}
+			<td><img src="/todo/media/{{ todo.image }}"></td>
+			{% endif %}
+		</tr>
+	</table>
+	{% endfor %}
 
 	<article>
 		<details>
 			<summary>New Reminder</summary>
 
-		<table>
-			<tr class="creation">
-				<form action='/new' method='post'>
-					{% csrf_token %}
-					<td class='add_title'><input class='input_title' name='title' placeholder='Enter your title :)'></td>
-					<td class='td_save'><button class='save'>save</button></td>
-			</tr>
-			<tr>
-				<td><button>attach image</button></td>
-				</form>
-			</tr>
-		</table>
+			<table class='new_table'>
+				<tr>
+					<form action='/new' method='post' enctype="multipart/form-data">
+						{% csrf_token %}
+						<td class='add_title'><input class='input_title' name='title' placeholder='Enter your title :)'></td>
+
+						<td class='td_image'>	
+							<label class='image_label'>
+								<input type='file' class='image' name='image'>
+								Choose an image
+							</label>
+						</td>
+						<td class='td_save'><button class='save'>save</button></td>
+					</form>
+				</tr>
+			</table>
 		</details>
 	</article>
 </body>
