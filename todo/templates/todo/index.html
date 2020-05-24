@@ -11,9 +11,9 @@
 	<header>My Reminder</header>
 	<nav>
 		<ul>
-			<li>All</li>
-			<li>Active</li>
-			<li>Done</li>
+			<li><a href='/'>All</a></li>
+			<li><a href='/?status=active'>Active</a></li>
+			<li><a href='/?status=done'>Done</a></li>
 		</ul>
 	</nav>
 	{% for todo in todo_list %}
@@ -48,7 +48,9 @@
 	<table>
 		<tr>
 			{% if todo.image %}
-			<td><img src="/todo/media/{{ todo.image }}"></td>
+			<td class='td_img'>
+				<img src="/todo/media/{{ todo.image }}">
+			</td>
 			{% endif %}
 		</tr>
 	</table>
