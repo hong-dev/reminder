@@ -24,6 +24,11 @@ li {
 	flex: auto;
 }
 
+a {
+	text-decoration: none;
+	color: white;
+}
+
 table {
 	width: 100%;
 	margin: 25px 0 0 0;
@@ -196,6 +201,10 @@ details summary::-webkit-details-marker {
 
 .new_table {
 	margin: 0;
+}
+
+.td_img {
+	padding: 0;
 }
 
 img {
