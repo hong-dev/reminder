@@ -27,7 +27,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'todo/media')
 SECRET_KEY = my_settings.SECRET['secret']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
