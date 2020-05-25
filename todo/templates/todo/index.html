@@ -3,10 +3,12 @@
 {% load static %}
 
 <link rel="stylesheet" type="text/css" href="{% static 'todo/style.css' %}">
+	
 <head>
-    <meta charset="UTF-8">
-    <title>My Reminder</title>
+	<meta charset="UTF-8">
+	<title>My Reminder</title>
 </head>
+	
 <body>
 	<header>My Reminder</header>
 	<nav>
@@ -16,6 +18,7 @@
 			<li><a href='/?status=done'>Done</a></li>
 		</ul>
 	</nav>
+
 	{% for todo in todo_list %}
 	<table>
 		<tr>
@@ -64,7 +67,9 @@
 				<tr>
 					<form action='/new' method='post' enctype="multipart/form-data">
 						{% csrf_token %}
-						<td class='add_title'><input class='input_title' name='title' placeholder='Enter your title :)'></td>
+						<td class='add_title'>
+							<input class='input_title' name='title' placeholder='Enter your title :)'>
+						</td>
 
 						<td class='td_image'>	
 							<label class='image_label'>
@@ -72,7 +77,9 @@
 								Choose an image
 							</label>
 						</td>
-						<td class='td_save'><button class='save'>save</button></td>
+						<td class='td_save'>
+							<button class='save'>save</button>
+						</td>
 					</form>
 				</tr>
 			</table>
