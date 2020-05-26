@@ -1,9 +1,6 @@
 # Created by https://www.gitignore.io/api/vim,linux,django,python
 # Edit at https://www.gitignore.io/?templates=vim,linux,django,python
 
-## personal
-my_settings.py
-
 ### Django ###
 *.log
 *.pot

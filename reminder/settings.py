@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-import my_settings
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -24,7 +23,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'todo/media')
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = my_settings.SECRET['secret']
+SECRET_KEY = '*&pe!w1_!h4ndsuc58g4wawqv4$$dybb8-8+$v$z1f+nap+ar-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
